@@ -54,40 +54,40 @@ macro_rules! BUILD_TIME_TEMPLATE {
 */
 
 // Image
-pub const TD_SHIM_CONFIG_OFFSET: u32 = {config_offset:#X};
-pub const TD_SHIM_CONFIG_SIZE: u32 = {config_size:#X};
-pub const TD_SHIM_MAILBOX_OFFSET: u32 = {mailbox_offset:#X}; // TD_SHIM_CONFIG_OFFSET + TD_SHIM_CONFIG_SIZE
-pub const TD_SHIM_MAILBOX_SIZE: u32 = {mailbox_size:#X};
-pub const TD_SHIM_HOB_OFFSET: u32 = {hob_offset:#X}; // TD_SHIM_MAILBOX_OFFSET + TD_SHIM_MAILBOX_SIZE
-pub const TD_SHIM_HOB_SIZE: u32 = {hob_size:#X};
-pub const TD_SHIM_TEMP_STACK_GUARD_SIZE: u32 = {temp_stack_guard_size:#X};
-pub const TD_SHIM_TEMP_STACK_OFFSET: u32 = {temp_stack_offset:#X}; // TD_SHIM_HOB_OFFSET + TD_SHIM_HOB_SIZE + TD_SHIM_TEMP_STACK_GUARD_SIZE
-pub const TD_SHIM_TEMP_STACK_SIZE: u32 = {temp_stack_size:#X};
-pub const TD_SHIM_TEMP_HEAP_OFFSET: u32 = {temp_heap_offset:#X}; // TD_SHIM_TEMP_STACK_OFFSET + TD_SHIM_TEMP_STACK_SIZE
-pub const TD_SHIM_TEMP_HEAP_SIZE: u32 = {temp_heap_size:#X};
+pub const TD_SHIM_CONFIG_OFFSET: u64 = {config_offset:#X};
+pub const TD_SHIM_CONFIG_SIZE: u64 = {config_size:#X};
+pub const TD_SHIM_MAILBOX_OFFSET: u64 = {mailbox_offset:#X}; // TD_SHIM_CONFIG_OFFSET + TD_SHIM_CONFIG_SIZE
+pub const TD_SHIM_MAILBOX_SIZE: u64 = {mailbox_size:#X};
+pub const TD_SHIM_HOB_OFFSET: u64 = {hob_offset:#X}; // TD_SHIM_MAILBOX_OFFSET + TD_SHIM_MAILBOX_SIZE
+pub const TD_SHIM_HOB_SIZE: u64 = {hob_size:#X};
+pub const TD_SHIM_TEMP_STACK_GUARD_SIZE: u64 = {temp_stack_guard_size:#X};
+pub const TD_SHIM_TEMP_STACK_OFFSET: u64 = {temp_stack_offset:#X}; // TD_SHIM_HOB_OFFSET + TD_SHIM_HOB_SIZE + TD_SHIM_TEMP_STACK_GUARD_SIZE
+pub const TD_SHIM_TEMP_STACK_SIZE: u64 = {temp_stack_size:#X};
+pub const TD_SHIM_TEMP_HEAP_OFFSET: u64 = {temp_heap_offset:#X}; // TD_SHIM_TEMP_STACK_OFFSET + TD_SHIM_TEMP_STACK_SIZE
+pub const TD_SHIM_TEMP_HEAP_SIZE: u64 = {temp_heap_size:#X};
 
-pub const TD_SHIM_PAYLOAD_OFFSET: u32 = {payload_offset:#X}; // TD_SHIM_TEMP_HEAP_OFFSET + TD_SHIM_TEMP_HEAP_SIZE
-pub const TD_SHIM_PAYLOAD_SIZE: u32 = {payload_size:#X};
-pub const TD_SHIM_IPL_OFFSET: u32 = {ipl_offset:#X}; // TD_SHIM_PAYLOAD_OFFSET + TD_SHIM_PAYLOAD_SIZE
-pub const TD_SHIM_METADATA_OFFSET: u32 = {metadata_offset:#X}; // TD_SHIM_IPL_OFFSET - size_of::<TdxMetadata>() + size_of::<TdxMetadataGuid>()
-pub const TD_SHIM_IPL_SIZE: u32 = {ipl_size:#X};
-pub const TD_SHIM_RESET_VECTOR_OFFSET: u32 = {rst_vec_offset:#X}; // TD_SHIM_IPL_OFFSET + TD_SHIM_IPL_SIZE
-pub const TD_SHIM_RESET_VECTOR_SIZE: u32 = {rst_vec_size:#X};
-pub const TD_SHIM_FIRMWARE_SIZE: u32 = {firmware_size:#X}; // TD_SHIM_RESET_VECTOR_OFFSET + TD_SHIM_RESET_VECTOR_SIZE
+pub const TD_SHIM_PAYLOAD_OFFSET: u64 = {payload_offset:#X}; // TD_SHIM_TEMP_HEAP_OFFSET + TD_SHIM_TEMP_HEAP_SIZE
+pub const TD_SHIM_PAYLOAD_SIZE: u64 = {payload_size:#X};
+pub const TD_SHIM_IPL_OFFSET: u64 = {ipl_offset:#X}; // TD_SHIM_PAYLOAD_OFFSET + TD_SHIM_PAYLOAD_SIZE
+pub const TD_SHIM_METADATA_OFFSET: u64 = {metadata_offset:#X}; // TD_SHIM_IPL_OFFSET - size_of::<TdxMetadata>() + size_of::<TdxMetadataGuid>()
+pub const TD_SHIM_IPL_SIZE: u64 = {ipl_size:#X};
+pub const TD_SHIM_RESET_VECTOR_OFFSET: u64 = {rst_vec_offset:#X}; // TD_SHIM_IPL_OFFSET + TD_SHIM_IPL_SIZE
+pub const TD_SHIM_RESET_VECTOR_SIZE: u64 = {rst_vec_size:#X};
+pub const TD_SHIM_FIRMWARE_SIZE: u64 = {firmware_size:#X}; // TD_SHIM_RESET_VECTOR_OFFSET + TD_SHIM_RESET_VECTOR_SIZE
 
 // Image loaded
-pub const TD_SHIM_FIRMWARE_BASE: u32 = {firmware_base:#X}; // 0xFFFFFFFF - TD_SHIM_FIRMWARE_SIZE + 1
-pub const TD_SHIM_CONFIG_BASE: u32 = {config_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_CONFIG_OFFSET
-pub const TD_SHIM_MAILBOX_BASE: u32 = {mailbox_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_MAILBOX_OFFSET
-pub const TD_SHIM_HOB_BASE: u32 = {hob_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_HOB_OFFSET
-pub const TD_SHIM_TEMP_STACK_BASE: u32 = {temp_stack_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_TEMP_STACK_OFFSET
-pub const TD_SHIM_TEMP_HEAP_BASE: u32 = {temp_heap_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_TEMP_HEAP_OFFSET
-pub const TD_SHIM_PAYLOAD_BASE: u32 = {payload_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_PAYLOAD_OFFSET
-pub const TD_SHIM_IPL_BASE: u32 = {ipl_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_IPL_OFFSET
-pub const TD_SHIM_RESET_VECTOR_BASE: u32 = {rst_vec_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_RESET_VECTOR_OFFSET
-pub const TD_SHIM_RESET_SEC_CORE_ENTRY_POINT_ADDR: u32 = {sec_entry_point:#X}; // 0xFFFFFFFF - 0x20 - 12 + 1
-pub const TD_SHIM_RESET_SEC_CORE_BASE_ADDR: u32 = {sec_core_base:#X}; // 0xFFFFFFFF - 0x20 - 8 + 1
-pub const TD_SHIM_RESET_SEC_CORE_SIZE_ADDR: u32 = {sec_core_size:#X}; // 0xFFFFFFFF - 0x20 - 4 + 1
+pub const TD_SHIM_FIRMWARE_BASE: u64 = {firmware_base:#X}; // 0xFFFFFFFF - TD_SHIM_FIRMWARE_SIZE + 1
+pub const TD_SHIM_CONFIG_BASE: u64 = {config_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_CONFIG_OFFSET
+pub const TD_SHIM_MAILBOX_BASE: u64 = {mailbox_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_MAILBOX_OFFSET
+pub const TD_SHIM_HOB_BASE: u64 = {hob_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_HOB_OFFSET
+pub const TD_SHIM_TEMP_STACK_BASE: u64 = {temp_stack_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_TEMP_STACK_OFFSET
+pub const TD_SHIM_TEMP_HEAP_BASE: u64 = {temp_heap_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_TEMP_HEAP_OFFSET
+pub const TD_SHIM_PAYLOAD_BASE: u64 = {payload_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_PAYLOAD_OFFSET
+pub const TD_SHIM_IPL_BASE: u64 = {ipl_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_IPL_OFFSET
+pub const TD_SHIM_RESET_VECTOR_BASE: u64 = {rst_vec_base:#X}; // TD_SHIM_FIRMWARE_BASE + TD_SHIM_RESET_VECTOR_OFFSET
+pub const TD_SHIM_RESET_SEC_CORE_ENTRY_POINT_ADDR: u64 = {sec_entry_point:#X}; // 0xFFFFFFFF - 0x20 - 12 + 1
+pub const TD_SHIM_RESET_SEC_CORE_BASE_ADDR: u64 = {sec_core_base:#X}; // 0xFFFFFFFF - 0x20 - 8 + 1
+pub const TD_SHIM_RESET_SEC_CORE_SIZE_ADDR: u64 = {sec_core_size:#X}; // 0xFFFFFFFF - 0x20 - 4 + 1
 "
 };
 }
@@ -132,13 +132,13 @@ macro_rules! RUNTIME_TEMPLATE {
                     +--------------+ <-  0x80000000 (2G) - for example
 */
 
-pub const TD_PAYLOAD_EVENT_LOG_SIZE: u32 = {event_log_size:#X};
-pub const TD_PAYLOAD_ACPI_SIZE: u32 = {acpi_size:#X};
-pub const TD_PAYLOAD_HOB_SIZE: u32 = {hob_size:#X};
-pub const TD_PAYLOAD_SHADOW_STACK_SIZE: u32 = {shadow_stack_size:#X};
-pub const TD_PAYLOAD_STACK_SIZE: u32 = {stack_size:#X};
-pub const TD_PAYLOAD_HEAP_SIZE: usize = {heap_size:#X};
-pub const TD_PAYLOAD_DMA_SIZE: usize = {dma_size:#X};
+pub const TD_PAYLOAD_EVENT_LOG_SIZE: u64 = {event_log_size:#X};
+pub const TD_PAYLOAD_ACPI_SIZE: u64 = {acpi_size:#X};
+pub const TD_PAYLOAD_HOB_SIZE: u64 = {hob_size:#X};
+pub const TD_PAYLOAD_SHADOW_STACK_SIZE: u64 = {shadow_stack_size:#X};
+pub const TD_PAYLOAD_STACK_SIZE: u64 = {stack_size:#X};
+pub const TD_PAYLOAD_HEAP_SIZE: u64 = {heap_size:#X};
+pub const TD_PAYLOAD_DMA_SIZE: u64 = {dma_size:#X};
 
 pub const TD_PAYLOAD_PAGE_TABLE_BASE: u64 = {pt_base:#X};
 pub const TD_PAYLOAD_PARAM_BASE: u64 = {payload_param_base:#X};

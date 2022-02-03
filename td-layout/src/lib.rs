@@ -58,34 +58,34 @@ impl RuntimeMemoryLayout {
             panic!("memory_top 0x{:x} is too small", memory_top);
         }
 
-        let current_base = current_base - TD_PAYLOAD_EVENT_LOG_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_EVENT_LOG_SIZE;
         let runtime_event_log_base = current_base;
 
-        let current_base = current_base - TD_PAYLOAD_ACPI_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_ACPI_SIZE;
         let runtime_acpi_base = current_base;
 
-        let current_base = current_base - TD_PAYLOAD_HOB_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_HOB_SIZE;
         let runtime_hob_base = current_base;
 
         let runtime_shadow_stack_top = current_base;
-        let current_base = current_base - TD_PAYLOAD_SHADOW_STACK_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_SHADOW_STACK_SIZE;
         let runtime_shadow_stack_base = current_base;
 
         let runtime_stack_top = current_base;
-        let current_base = current_base - TD_PAYLOAD_STACK_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_STACK_SIZE;
         let runtime_stack_base = current_base;
 
-        let current_base = current_base - TD_PAYLOAD_HEAP_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_HEAP_SIZE;
         let runtime_heap_base = current_base;
 
-        let current_base = current_base - TD_PAYLOAD_DMA_SIZE as u64;
+        let current_base = current_base - TD_PAYLOAD_DMA_SIZE;
         let runtime_dma_base = current_base;
 
         let runtime_memory_bottom = current_base;
 
-        let runtime_page_table_base = TD_PAYLOAD_PAGE_TABLE_BASE as u64;
-        let runtime_payload_param_base = TD_PAYLOAD_PARAM_BASE as u64;
-        let runtime_payload_base = TD_PAYLOAD_BASE as u64;
+        let runtime_page_table_base = TD_PAYLOAD_PAGE_TABLE_BASE;
+        let runtime_payload_param_base = TD_PAYLOAD_PARAM_BASE;
+        let runtime_payload_base = TD_PAYLOAD_BASE;
 
         RuntimeMemoryLayout {
             runtime_page_table_base,
